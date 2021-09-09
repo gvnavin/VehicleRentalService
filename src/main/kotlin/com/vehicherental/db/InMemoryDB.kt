@@ -21,4 +21,5 @@ class InMemoryDB(): DB {
         println("tableMap = ${tableMap}")
     }
 
+    get
 }

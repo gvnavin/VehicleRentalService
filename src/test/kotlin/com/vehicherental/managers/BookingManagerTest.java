@@ -10,11 +10,18 @@ import java.time.Month;
 
 public class BookingManagerTest {
     //Field bookingDao of type BookingDao - was not mocked since Mockito doesn't mock a Final class when 'mock-maker-inline' option is not set
-    BookingManager bookingManager = new BookingManager(new BookingDao(new InMemoryDB()));
+    BookingManager bookingManager;
+
+    {
+        final InMemoryDB db = new InMemoryDB();
+        bookingManager = new BookingManager(new BookingDao(db));
+    }
 
     @Test
     public void testBookVehicle() {
-        bookingManager.bookVehicle(VehicleType.Sedan, LocalDateTime.of(2021, Month.SEPTEMBER, 9, 15, 9, 51), LocalDateTime.of(2021, Month.SEPTEMBER, 9, 15, 9, 51));
+        bookingManager.bookVehicle(VehicleType.Sedan,
+                LocalDateTime.of(2021, Month.SEPTEMBER, 9, 15, 9, 51), LocalDateTime.of(2021, Month.SEPTEMBER, 9, 15, 9, 51));
+
     }
 }
 

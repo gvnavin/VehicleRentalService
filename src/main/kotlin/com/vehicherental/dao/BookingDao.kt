@@ -6,6 +6,7 @@ import com.vehicherental.dbmodels.Booking
 import com.vehicherental.dbmodels.VehicleType
 import java.time.LocalDateTime
 
+//ORM
 class BookingDao(private val db: DB): CRUDDao<Booking> {
 
     override fun save(e: Booking) {
